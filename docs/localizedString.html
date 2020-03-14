@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>nekoapp.create.localizedString() - Neko Web Application Javascript API - Neko Web Software Documentation</title>
+<style type="text/css">html,body{margin:0;padding:0;font-family:Arial,sans-serif}.nekoweb_docs_head{background:rgb(30,180,30)}.nekoweb_docs_head .nekoweb_docs_logo{margin:20px 35px;display:inline-block}.nekoweb_docs_head .nekoweb_docs_logo svg{width:180px;height:18px;fill:rgb(255,255,255)}.nekoweb_docs_head .nekoweb_docs_logo span{margin:0 0 0 6px;font-size:1.25em;color:rgb(255,255,255);text-transform:uppercase;vertical-align:bottom}.nekoweb_docs_container{position:relative}.nekoweb_docs_sidebar{position:absolute;overflow:auto;width:400px;height:100%;background:rgb(225,225,225)}.nekoweb_docs_sidebar .sidebar_section,.nekoweb_docs_sidebar .sidebar_topic,.nekoweb_docs_sidebar .sidebar_header{color:rgb(60,60,60);font-size:1em;padding:10px 35px}.nekoweb_docs_sidebar .sidebar_topic{display:block;text-decoration:none;transition:background ease .2s}.nekoweb_docs_sidebar .sidebar_topic:hover,.nekoweb_docs_sidebar .sidebar_topic:focus{background:rgb(180,180,180)}.nekoweb_docs_sidebar .sidebar_topic.selected{color:rgb(255,255,255);font-weight:bold;background:rgb(30,180,30)}.nekoweb_docs_sidebar .sidebar_section{color:rgb(30,180,30);font-size:1.2em;text-transform:uppercase}.nekoweb_docs_sidebar .sidebar_header{margin:10px 0 0 0;color:rgb(30,180,30);font-size:1.3em;font-weight:bold;text-transform:uppercase;border-bottom:solid 1px rgb(180,180,180)}.nekoweb_docs_content{padding:20px 35px;margin:0 0 0 400px}.nekoweb_docs_content a{color:rgb(0,0,0);text-decoration:none;transition:color ease .2s}.nekoweb_docs_content a:hover,.nekoweb_docs_content a:focus{color:rgb(30,180,30)}.nekoweb_docs_content h1,.nekoweb_docs_content h2{color:rgb(30,180,30)}.nekoweb_docs_content h1{margin:0 0 20px;font-size:2.5em;text-transform:uppercase}.nekoweb_docs_content code{display:block;padding:10px;border-radius:10px;background:rgb(225,225,225)}.nekoweb_docs_content .pagination{margin:0 15px 0 0;text-transform:uppercase}.nekoweb_docs_content .info,.nekoweb_docs_content .warning{padding:10px;border-radius:10px;color:rgb(255,255,255)}.nekoweb_docs_content .info::before,.nekoweb_docs_content .warning::before{content:'';display:inline-block;width:20px;height:20px;margin:0 10px 0 0;vertical-align:bottom}.nekoweb_docs_content .info{background:rgb(80,160,255)}.nekoweb_docs_content .warning{background:rgb(255,150,64)}.nekoweb_docs_content .info::before{background:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M10%200C4.51%200%200%204.51%200%2010s4.51%2010%2010%2010s10-4.51%2010-10S15.49%200%2010%200z%20M11.5%2015.97h-3V8.92h3V15.97z%20M11.5%207.03h-3v-3h3V7.03z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E")}.nekoweb_docs_content .warning::before{background:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M9.98%200L0%2020h20L9.98%200z%20M11.5%2018.03h-3v-3h3V18.03z%20M8.5%2012.91V6.92h3v5.99H8.5z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E")}.nekoweb_docs_footer{padding:10px 35px;background:rgb(180,180,180)}</style>
+</head>
+<body>
+<section class="nekoweb_docs_head">
+    <div class="nekoweb_docs_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 18"><path d="M0 16.9V1.09h2.41l6.8 11.86V1.09h2.42v15.8H9.22L2.41 5.04V16.9M12.73 1.09h9v2.2h-6.8V7.9h5.93v2.2h-5.93v4.61h6.8v2.2h-9M22.61 1.09h2.2v6.37l5.48-6.37h2.64L26.56 9l6.37 7.91h-2.64l-5.48-6.36v6.36h-2.2M38.2 1.09c-3.41 0-5.93 4.19-5.93 7.91s2.51 7.91 5.93 7.91s5.93-4.19 5.93-7.91S41.6 1.09 38.2 1.09zM38.2 14.93c-2.23 0-4.18-3.07-4.18-5.93S36 3.07 38.2 3.07S42.15 6.35 42.15 9C42.14 11.63 40.39 14.93 38.2 14.93M47.86 1.09l3.73 15.8h2.2l2.63-12.95l2.64 12.95h2.2l4.18-15.8h-2.2l-3.07 12.29L57.52 1.09h-2.2l-2.64 12.29L50.05 1.09M66.29 1.09h9v2.2h-6.8V7.9h5.93v2.2h-5.93v4.61h6.8v2.2h-9M82.09 9.22c1.91-0.59 3.17-2.34 3.08-4.18c-0.1-2.14-2.02-3.97-4.39-3.95h-4.61v15.8h4.61c2.48 0.06 4.4-1.88 4.39-3.95C85.15 11.31 83.92 9.73 82.09 9.22zM78.59 3.29h2.2c1.75 0 2.2 1.32 2.2 2.2s-0.88 2.2-2.2 2.2h-2.2V3.29zM80.78 14.7h-2.2v-3.95h2.2c1.32 0 2.2 0.92 2.2 1.75C82.98 13.39 82.32 14.7 80.78 14.7M97.91 1.09h-4.39c-2.16 0.08-4.33 2.28-4.39 4.39c-0.06 2.18 2.41 4.39 4.39 4.39c2.41 0 2.41 1.75 2.41 2.86s-0.91 2.18-2.41 2.2h-4.39v1.98h4.39c3.07 0 4.39-1.54 4.39-4.18c0-2.41-1.32-4.61-4.39-4.61c-1.32 0-2.41-1.75-2.41-2.64c0-0.96 1.32-2.41 2.41-2.41h4.39M104.93 1.09C101.52 1.09 99 5.28 99 9s2.51 7.91 5.93 7.91c3.41 0 5.93-4.19 5.93-7.91S108.34 1.09 104.93 1.09zM104.93 14.93c-2.23 0-4.18-3.07-4.18-5.93s1.98-5.93 4.18-5.93s3.95 3.28 3.95 5.93C108.88 11.63 107.12 14.93 104.93 14.93M111.73 1.09h8.78v2.2h-6.59V7.9h5.48v2.2h-5.48v6.8h-2.2M121.39 1.09h10.98v2.2h-4.39V16.9h-2.2V3.29h-4.39M133.02 1.09l3.73 15.8h2.2l2.64-12.95l2.63 12.95h2.2l4.18-15.8h-2.2l-3.07 12.29l-2.65-12.29h-2.2l-2.63 12.29l-2.63-12.29M154.98 1.09h-2.64l-5.05 15.8h2.2l1.54-4.61h5.27l1.54 4.61h2.2L154.98 1.09zM151.68 9.88l1.98-6.59l1.98 6.59H151.68M166.39 9.22c2.16-0.2 3.79-2.06 3.73-4.18c-0.06-2.03-1.66-3.76-3.73-3.95h-5.48v15.8h2.2v-6.8l4.82 6.8h2.2l-5.27-7.68h1.53V9.22zM163.09 2.85h3.07c0.66 0 1.98 0.66 1.98 2.2s-1.32 2.2-1.98 2.2h-3.07V2.85M171 1.09h9v2.2h-6.8V7.9h5.93v2.2h-5.93v4.61h6.8v2.2h-9V1.09z"></path></svg><span>DOCUMENTATION</span></div>
+</section>
+<section class="nekoweb_docs_container">
+    <div class="nekoweb_docs_sidebar">
+        <div class="sidebar_header">Neko Web Application</div>
+        <div class="sidebar_section">Javascript Guide</div>
+        <a href="../../js_guide/introduction.html" class="sidebar_topic">Introduction</a>
+        <a href="../../js_guide/setting_app.html" class="sidebar_topic">Setting App</a>
+        <a href="../../js_guide/preferences.html" class="sidebar_topic">App Preferences</a>
+        <a href="../../js_guide/modules.html" class="sidebar_topic">App Modules</a>
+        <a href="../../js_guide/windows.html" class="sidebar_topic">App Windows</a>
+        <a href="../../js_guide/locale.html" class="sidebar_topic">App Localization</a>
+        <a href="../../js_guide/ui.html" class="sidebar_topic">User Interface</a>
+        <a href="../../js_guide/settings.html" class="sidebar_topic">App Settings</a>
+        <a href="../../js_guide/load_screen.html" class="sidebar_topic">Loading Screen</a>
+        <div class="sidebar_section">Javascript API</div>
+        <a href="object.html" class="sidebar_topic">nekoapp.create.object()</a>
+        <a href="element.html" class="sidebar_topic">nekoapp.create.element()</a>
+        <a href="template.html" class="sidebar_topic">nekoapp.create.template()</a>
+        <a href="link.html" class="sidebar_topic">nekoapp.create.link()</a>
+        <a href="frame.html" class="sidebar_topic">nekoapp.create.frame()</a>
+        <a href="svg.html" class="sidebar_topic">nekoapp.create.svg()</a>
+        <div class="sidebar_topic selected">nekoapp.create.localizedString()</div>
+        <a href="graphic.html" class="sidebar_topic">nekoapp.create.graphic()</a>
+        <a href="animation.html" class="sidebar_topic">nekoapp.create.animation()</a>
+        <a href="module.html" class="sidebar_topic">nekoapp.create.module()</a>
+        <a href="window.html" class="sidebar_topic">nekoapp.create.window()</a>
+        <a href="button.html" class="sidebar_topic">nekoapp.create.button()</a>
+        <a href="checkbox.html" class="sidebar_topic">nekoapp.create.checkbox()</a>
+        <a href="radiobutton.html" class="sidebar_topic">nekoapp.create.radiobutton()</a>
+        <a href="textbox.html" class="sidebar_topic">nekoapp.create.textbox()</a>
+        <a href="combobox.html" class="sidebar_topic">nekoapp.create.combobox()</a>
+        <a href="spinner.html" class="sidebar_topic">nekoapp.create.spinner()</a>
+        <a href="../modules/change.html" class="sidebar_topic">nekoapp.modules.change()</a>
+        <a href="../locale/changeLanguage.html" class="sidebar_topic">nekoapp.locale.changeLanguage()</a>
+        <a href="../resources.html" class="sidebar_topic">nekoapp.resources()</a>
+        <a href="../system/css.html" class="sidebar_topic">nekoapp.system.CSS</a>
+        <a href="../system/scripts.html" class="sidebar_topic">nekoapp.system.scripts</a>
+        <a href="../system/navigation.html" class="sidebar_topic">nekoapp.system.navigation</a>
+        <a href="../system/xhr.html" class="sidebar_topic">nekoapp.system.xhr()</a>
+        <a href="../system/clear.html" class="sidebar_topic">nekoapp.system.clear()</a>
+        <a href="../system/hiddenStatus.html" class="sidebar_topic">nekoapp.system.hiddenStatus</a>
+        <a href="../system/init.html" class="sidebar_topic">nekoapp.system.init()</a>
+    </div>
+    <div class="nekoweb_docs_content">
+        <h1 style="text-transform:initial">nekoapp.create.localizedString()</h1>
+        <p>This function is used to create localized string object that shows strings in language that user setted in application. Whenever user changes application language these objects dinamically sets strings in right language (depends how good developer of application have done that).</p>
+        <code>var your_localized_string = nekoapp.create.localizedString(your_app, localized_string_name);</code>
+        <h2>Function parameters:</h2>
+        <ul>
+            <li>First parameter determines to which application is object about to be linked. That means function receives only <b>nekoapp</b> objects and also it means that it supposed to be your application if you want this object added to your application.</li>
+            <li>Second parameter determines name of localized string that Neko Web Application will use to give value of this localized string. It must be string.</li>
+        </ul>
+        <h2>Function returns:</h2>
+        <p>Localized string object that you can put wherever you want.</p>
+        <h2>Function example:</h2>
+        <code>var your_localized_string = nekoapp.create.localizedString(your_app, &#34;your_localized_string_name&#34;);<br><br>your_app.modules.your_app_module.appendChild(your_localized_string);</code>
+        <p class="info">Remember that your localized strings name must match with name from localized strings table, otherwise there'll be nothing.</p>
+        <p class="info">If there's no string, change module or language.</p>
+        <h2>Function since:</h2>
+        <p>The beginning of Neko Web Application's life</p>
+        <h2>Function changelog:</h2>
+        <ul>
+            <li>Changed name from <b>nekoapp.create.string</b> since 0.2.1 (Alpha) version.</li>
+        </ul>
+        <h2>Other functions:</h2>
+        <p><a href="object.html">nekoapp.create.object()</a> - for application objects creation<br><a href="element.html">nekoapp.create.element()</a> - for standard HTML elements creation<br><a href="template.html">nekoapp.create.template()</a> - for object template creation<br><a href="link.html">nekoapp.create.link()</a> - for application hyperlinks creation<br><a href="frame.html">nekoapp.create.frame()</a> - for application iframes creation<br><a href="svg.html">nekoapp.create.svg()</a> - for SVG objects creation<br><a href="graphic.html">nekoapp.create.graphic()</a> - for application graphic objects creation<br><a href="animation.html">nekoapp.create.animation()</a> - for application animation objects creation<br><a href="module.html">nekoapp.create.module()</a> - for application modules creation<br><a href="window.html">nekoapp.create.window()</a> - for application windows creation<br><a href="button.html">nekoapp.create.button()</a> - for application button objects creation<br><a href="checkbox.html">nekoapp.create.checkbox()</a> - for application checkbox objects creation<br><a href="radiobutton.html">nekoapp.create.radiobutton()</a> - for application radiobutton objects creation<br><a href="textbox.html">nekoapp.create.textbox()</a> - for application textbox objects creation<br><a href="combobox.html">nekoapp.create.combobox()</a> - for application combobox objects creation<br><a href="spinner.html">nekoapp.create.spinner()</a> - for application spinner objects creation</p>
+    </div>
+</section>
+<section class="nekoweb_docs_footer">&copy; Copyright S.V.G, 2019.</section>
+</body>
+</html>
