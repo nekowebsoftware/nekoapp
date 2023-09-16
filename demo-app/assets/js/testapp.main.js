@@ -21,7 +21,7 @@ var testapp = new nekoapp({                                                     
         nekoappID : "0" ,																		//  ID of your app registered in Application Manager (make sure you're done that otherwise you can use 0 for testing)
         applicationTitle : "Neko Web Application Test" ,
         applicationVersion : "1.0.0" ,
-        applicationURL : "//nekoweb.ddns.net/test-app/"
+        applicationURL : "//nekowebsoftware.github.io/nekoapp/"
     } ,
     applicationStylesheets : {                                                                  //  Stylesheets used for your application
         default : "/assets/css/testapp.main.css" ,												//  Default stylesheet for elements and app layout.
