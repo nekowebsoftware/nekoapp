@@ -1,0 +1,73 @@
+/*--------------------------------------------------------------------------
+//  Copyright (c) 2019 Neko
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------*/
+
+:root {                                                           /* This color variables used by elements in default mode */
+    --testapp-primary-text-color: rgb(255, 255, 255);
+    --testapp-secondary-text-color: rgb(0, 0, 0);
+    --testapp-highlight-text-color: rgb(180, 180, 180);
+    --testapp-header-primary-text-color: rgba(255, 255, 255, .6);
+    --testapp-header-secondary-text-color: rgba(255, 255, 255, 1);
+    --testapp-placeholder-text-color: rgba(200, 200, 200, .8);
+    --testapp-primary-shadow-color: rgb(0, 0, 0, .5);
+    --testapp-primary-background-color: rgb(125, 125, 125);
+    --testapp-primary-button-color: rgb(150, 150, 150);
+    --testapp-secondary-button-color: rgb(180, 180, 180);
+    --testapp-colorbutton-primary-color: rgb(200, 200, 200);
+    --testapp-colorbutton-secondary-color: rgb(180, 0, 0);
+    --testapp-glass-button-color: rgb(220, 220, 220);
+    --testapp-pane-button-color: rgba(180, 180, 180, .6);
+    --testapp-checkbox-primary-color: rgb(150, 150, 150);
+    --testapp-checkbox-secondary-color: rgb(180, 180, 180);
+    --testapp-textbox-primary-color: rgb(100, 100, 100);
+    --testapp-textbox-secondary-color: rgb(80, 80, 80);
+    --testapp-textbox-highlighted-color: rgb(150, 150, 150);
+    --testapp-textbox-default-color: rgb(255, 255, 255);
+    --testapp-combobox-primary-color: rgb(80, 80, 80);
+    --testapp-combobox-secondary-color: rgb(220,220,220);
+    --testapp-wave-animation-color: rgba(255, 255, 255, .2);
+    --testapp-progress-bar-color: rgb(200, 200, 200);
+    --testapp-overlay-background-color: rgba(0, 0, 0, .6);
+    --testapp-window-background-color: rgb(100 ,100 ,100)
+}
+[dark] {                                                          /* This color variables used by elements in dark mode */
+    --testapp-primary-text-color: rgb(255, 255, 255);
+    --testapp-secondary-text-color: rgb(100, 100, 100);
+    --testapp-highlight-text-color: rgb(120, 120, 120);
+    --testapp-header-primary-text-color: rgba(255, 255, 255, .6);
+    --testapp-header-secondary-text-color: rgba(255, 255, 255, 1);
+    --testapp-placeholder-text-color: rgba(120, 120, 120, .8);
+    --testapp-primary-shadow-color: rgb(100, 100, 100, .5);
+    --testapp-primary-background-color: rgb(70, 70, 70);
+    --testapp-primary-button-color: rgb(90, 90, 90);
+    --testapp-secondary-button-color: rgb(120, 120, 120);
+    --testapp-colorbutton-primary-color: rgb(200, 200, 200);
+    --testapp-colorbutton-secondary-color: rgb(180, 0, 0);
+    --testapp-glass-button-color: rgb(220, 220, 220);
+    --testapp-pane-button-color: rgba(120, 120, 120, .6);
+    --testapp-checkbox-primary-color: rgb(90, 90, 90);
+    --testapp-checkbox-secondary-color: rgb(120, 120, 120);
+    --testapp-textbox-primary-color: rgb(50, 50, 50);
+    --testapp-textbox-secondary-color: rgb(30, 30, 30);
+    --testapp-textbox-highlighted-color: rgb(90, 90, 90);
+    --testapp-textbox-default-color: rgb(255, 255, 255);
+    --testapp-combobox-primary-color: rgb(30, 30, 30);
+    --testapp-combobox-secondary-color: rgb(160, 160, 160);
+    --testapp-wave-animation-color: rgba(255, 255, 255, .2);
+    --testapp-progress-bar-color: rgb(140, 140, 140);
+    --testapp-overlay-background-color: rgba(0, 0, 0, .6);
+    --testapp-window-background-color: rgb(50 ,50 ,50)
+}

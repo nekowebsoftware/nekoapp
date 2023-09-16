@@ -1,0 +1,489 @@
+/*--------------------------------------------------------------------------
+//  Copyright (c) 2019 Neko
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------*/
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: var(--testapp-primary-background-color);
+    color: var(--testapp-primary-text-color)
+}
+testapp-overlay {
+	background: var(--testapp-overlay-background-color)
+}
+test-app a,
+testapp-window a {
+	color: var(--testapp-primary-text-color);
+	transition: color ease .2s
+}
+test-app a:hover,
+test-app a:focus,
+testapp-window a:hover,
+testapp-window a:focus {
+	color: var(--testapp-highlight-text-color)
+}
+test-app testapp-ui-button,
+testapp-window testapp-ui-button {
+	text-shadow: 1px 1px 2px var(--testapp-primary-shadow-color)
+}
+test-app testapp-ui-button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button testapp-ui-element.testapp_ui_button_background {
+	transition: background ease .2s, border-color ease .2s
+}
+test-app testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background {
+	transition: background ease .2s, border-color ease .2s, opacity ease .2s
+}
+test-app testapp-ui-button.testapp_ui_default_button,
+test-app testapp-ui-button.testapp_ui_color_button,
+test-app testapp-ui-button.testapp_ui_glass_button,
+testapp-window testapp-ui-button.testapp_ui_default_button,
+testapp-window testapp-ui-button.testapp_ui_color_button,
+testapp-window testapp-ui-button.testapp_ui_glass_button {
+	border-radius: 2px;
+	box-shadow: 2px 3px 4px var(--testapp-primary-shadow-color)
+}
+test-app testapp-ui-button.testapp_ui_default_button testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button.testapp_ui_color_button testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_default_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_color_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background {
+	background: transparent;
+	border-style: solid;
+	border-width: 6px
+}
+test-app testapp-ui-button.testapp_ui_default_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_default_button testapp-ui-element.testapp_ui_button_background {
+	border-color: var(--testapp-primary-button-color)
+}
+test-app testapp-ui-button.testapp_ui_default_button:hover testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button.testapp_ui_default_button:focus testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_default_button:hover testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_default_button:focus testapp-ui-element.testapp_ui_button_background {
+	background: var(--testapp-primary-button-color)
+}
+test-app testapp-ui-button.testapp_ui_default_button:active testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_default_button:active testapp-ui-element.testapp_ui_button_background {
+	background: var(--testapp-secondary-button-color);
+	border-color: var(--testapp-secondary-button-color)
+}
+test-app testapp-ui-button.testapp_ui_color_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_color_button testapp-ui-element.testapp_ui_button_background {
+	border-color: var(--testapp-colorbutton-primary-color)
+}
+test-app testapp-ui-button.testapp_ui_color_button:hover testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button.testapp_ui_color_button:focus testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_color_button:hover testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_color_button:focus testapp-ui-element.testapp_ui_button_background {
+	background: var(--testapp-colorbutton-primary-color)
+}
+test-app testapp-ui-button.testapp_ui_color_button:active testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_color_button:active testapp-ui-element.testapp_ui_button_background {
+	background: var(--testapp-colorbutton-secondary-color);
+	border-color: var(--testapp-colorbutton-secondary-color)
+}
+test-app testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background {
+	border-color: var(--testapp-glass-button-color);
+	opacity: .6
+}
+test-app testapp-ui-button.testapp_ui_glass_button:active testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button:active testapp-ui-element.testapp_ui_button_background {
+	opacity: .8
+}
+test-app testapp-ui-button.testapp_ui_glass_button:hover testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button.testapp_ui_glass_button:focus testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button:hover testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button:focus testapp-ui-element.testapp_ui_button_background {
+	background: var(--testapp-glass-button-color)
+}
+test-app testapp-ui-button.testapp_ui_pane_button:active testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button.testapp_ui_circle_button:active testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_pane_button:active testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_circle_button:active testapp-ui-element.testapp_ui_button_background {
+	background: var(--testapp-pane-button-color)
+}
+test-app testapp-ui-button.testapp_ui_pane_button testapp-ui-element.testapp_ui_button_content,
+test-app testapp-ui-button.testapp_ui_circle_button testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button.testapp_ui_pane_button testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button.testapp_ui_circle_button testapp-ui-element.testapp_ui_button_content {
+	opacity: .6;
+	transition: opacity ease .2s
+}
+test-app testapp-ui-button.testapp_ui_pane_button:hover testapp-ui-element.testapp_ui_button_content,
+test-app testapp-ui-button.testapp_ui_pane_button:focus testapp-ui-element.testapp_ui_button_content,
+test-app testapp-ui-button.testapp_ui_circle_button:hover testapp-ui-element.testapp_ui_button_content,
+test-app testapp-ui-button.testapp_ui_circle_button:focus testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button.testapp_ui_pane_button:hover testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button.testapp_ui_pane_button:focus testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button.testapp_ui_circle_button:hover testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button.testapp_ui_circle_button:focus testapp-ui-element.testapp_ui_button_content {
+	opacity: 1
+}
+test-app testapp-ui-button.testapp_ui_circle_button testapp-ui-element.testapp_ui_button_content testapp-ui-graphic svg,
+testapp-window testapp-ui-button.testapp_ui_circle_button testapp-ui-element.testapp_ui_button_content testapp-ui-graphic svg {
+	fill: var(--testapp-primary-text-color)
+}
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic,
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon {
+    opacity: .8;
+    transition: opacity ease .2s
+}
+test-app testapp-ui-checkbox:hover testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic,
+test-app testapp-ui-checkbox:focus testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic,
+test-app testapp-ui-radiobutton:hover testapp-ui-element.testapp_ui_radiobutton_icon,
+test-app testapp-ui-radiobutton:focus testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-checkbox:hover testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic,
+testapp-window testapp-ui-checkbox:focus testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic,
+testapp-window testapp-ui-radiobutton:hover testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-radiobutton:focus testapp-ui-element.testapp_ui_radiobutton_icon {
+    opacity: 1;
+}
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic svg,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic svg {
+    fill: var(--testapp-checkbox-primary-color);
+    transition: fill ease .2s
+}
+test-app testapp-ui-checkbox[checked] testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic svg,
+testapp-window testapp-ui-checkbox[checked] testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic svg {
+    fill: var(--testapp-checkbox-secondary-color)
+}
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon {
+	border-color: var(--testapp-checkbox-primary-color)
+}
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon::after,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon::after {
+	background: var(--testapp-checkbox-primary-color)
+}
+test-app testapp-ui-radiobutton[selected] testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-radiobutton[selected] testapp-ui-element.testapp_ui_radiobutton_icon {
+	border-color: var(--testapp-checkbox-secondary-color)
+}
+test-app testapp-ui-radiobutton[selected] testapp-ui-element.testapp_ui_radiobutton_icon::after,
+testapp-window testapp-ui-radiobutton[selected] testapp-ui-element.testapp_ui_radiobutton_icon::after {
+	background: var(--testapp-checkbox-secondary-color)
+}
+test-app testapp-ui-textbox[placeholder]::before,
+testapp-window testapp-ui-textbox[placeholder]::before {
+    color: var(--testapp-placeholder-text-color);
+    transition: opacity ease .2s
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke {
+    background: var(--testapp-primary-button-color)
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke::after,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke::after {
+    background: var(--testapp-secondary-button-color)
+}
+test-app testapp-ui-textbox.testapp_ui_simple_textbox,
+testapp-window testapp-ui-textbox.testapp_ui_simple_textbox {
+    background: var(--testapp-textbox-primary-color);
+    border-color: var(--testapp-textbox-secondary-color)
+}
+test-app testapp-ui-textbox.testapp_ui_highlighted_textbox,
+testapp-window testapp-ui-textbox.testapp_ui_highlighted_textbox {
+    background: var(--testapp-textbox-primary-color);
+    transition: background ease .2s, color ease .2s
+}
+test-app testapp-ui-textbox.testapp_ui_highlighted_textbox:hover,
+testapp-window testapp-ui-textbox.testapp_ui_highlighted_textbox:hover {
+    background: var(--testapp-textbox-highlighted-color)
+}
+test-app testapp-ui-textbox.testapp_ui_highlighted_textbox[focused],
+testapp-window testapp-ui-textbox.testapp_ui_highlighted_textbox[focused] {
+    background: var(--testapp-textbox-default-color);
+    color: var(--testapp-secondary-text-color)
+}
+test-app testapp-ui-combobox,
+testapp-window testapp-ui-combobox {
+	border-color: var(--testapp-combobox-primary-color)
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon testapp-ui-graphic svg,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon testapp-ui-graphic svg {
+	fill: var(--testapp-primary-text-color)
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options {
+	background: var(--testapp-combobox-secondary-color);
+	box-shadow: 0 1px 3px var(--testapp-primary-shadow-color)
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options testapp-ui-element,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options testapp-ui-element {
+	color: var(--testapp-combobox-primary-color);
+	transition: background ease .2s, color ease .2s
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options testapp-ui-element:hover,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options testapp-ui-element:hover {
+	background: var(--testapp-combobox-primary-color);
+	color: var(--testapp-combobox-secondary-color)
+}
+testapp-overlay testapp-window {
+	background: var(--testapp-window-background-color);
+	box-shadow: 0 0 16px 4px var(--testapp-primary-shadow-color)
+}
+test-app testapp-loading {
+    background: var(--testapp-primary-background-color)
+}
+test-app testapp-loading testapp-ui-graphic svg {
+    fill: var(--testapp-primary-text-color);
+    stroke: var(--testapp-primary-text-color)
+}
+test-app testapp-loading .loading_message {
+    color: var(--testapp-primary-text-color)
+}
+test-app testapp-progress div.testapp_progress_bar_inner {
+    background: var(--testapp-progress-bar-color)
+}
+test-app[processing] testapp-progress div.testapp_progress_bar_inner {
+    position: absolute;
+    animation: progress_animation 1.25s linear infinite
+}
+test-app testapp-head {
+    background: var(--testapp-primary-background-color);
+	box-shadow: 0 4px 12px var(--testapp-primary-shadow-color)
+}
+test-app testapp-footer {
+    background: var(--testapp-primary-background-color);
+	box-shadow: 0 -4px 12px var(--testapp-primary-shadow-color)
+}
+test-app testapp-head testapp-logo testapp-ui-graphic svg {
+    fill: var(--testapp-header-primary-text-color)
+}
+test-app testapp-head testapp-navigation testapp-navigation-item testapp-ui-element {
+    color: var(--testapp-header-primary-text-color);
+    transition: color ease .2s
+}
+test-app testapp-head testapp-navigation testapp-navigation-item:hover testapp-ui-element {
+    color: var(--testapp-header-secondary-text-color)
+}
+test-app testapp-ui-spinner,
+testapp-window testapp-ui-spinner {
+    display: block;
+    width: 60px;
+    height: 60px
+}
+test-app testapp-ui-spinner .spinner_container,
+testapp-window testapp-ui-spinner .spinner_container {
+    position: relative;
+    width: 60px;
+    height: 60px
+}
+test-app testapp-ui-spinner .spinner_rotator,
+testapp-window testapp-ui-spinner .spinner_rotator {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: rotate_spin 2s linear infinite
+}
+test-app testapp-ui-spinner .spinner_slice,
+testapp-window testapp-ui-spinner .spinner_slice {
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    border-radius: 20%;
+    overflow: hidden
+}
+test-app testapp-ui-spinner .spinner_slice.top,
+testapp-window testapp-ui-spinner .spinner_slice.top {
+    top: 0;
+    left: 30%;
+    right: 30%
+}
+test-app testapp-ui-spinner .spinner_slice.top_right,
+testapp-window testapp-ui-spinner .spinner_slice.top_right {
+    top: 7%;
+    right: 13%;
+    transform: rotate(45deg)
+}
+test-app testapp-ui-spinner .spinner_slice.right,
+testapp-window testapp-ui-spinner .spinner_slice.right {
+    top: 25%;
+    bottom: 25%;
+    right: 5%;
+    transform: rotate(90deg)
+}
+test-app testapp-ui-spinner .spinner_slice.bottom_right,
+testapp-window testapp-ui-spinner .spinner_slice.bottom_right {
+    bottom: 7%;
+    right: 13%;
+    transform: rotate(135deg)
+}
+test-app testapp-ui-spinner .spinner_slice.bottom,
+testapp-window testapp-ui-spinner .spinner_slice.bottom {
+    bottom: 0;
+    left: 30%;
+    right: 30%;
+    transform: rotate(180deg)
+}
+test-app testapp-ui-spinner .spinner_slice.bottom_left,
+testapp-window testapp-ui-spinner .spinner_slice.bottom_left {
+    bottom: 7%;
+    left: 13%;
+    transform: rotate(225deg)
+}
+test-app testapp-ui-spinner .spinner_slice.left,
+testapp-window testapp-ui-spinner .spinner_slice.left {
+    top: 25%;
+    bottom: 25%;
+    left: 5%;
+    transform: rotate(270deg)
+}
+test-app testapp-ui-spinner .spinner_slice.top_left,
+testapp-window testapp-ui-spinner .spinner_slice.top_left {
+    top: 7%;
+    left: 13%;
+    transform: rotate(315deg)
+}
+test-app testapp-ui-spinner .spinner_slice::after,
+testapp-window testapp-ui-spinner .spinner_slice::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    right: -75%;
+    border-color: var(--testapp-primary-text-color) transparent transparent transparent;
+    border-style: solid;
+    border-width: 6px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 250%;
+    height: 200%;
+    animation: circle_spin 3s ease-in infinite
+}
+test-app testapp-ui-spinner .spinner_slice.top::after,
+testapp-window testapp-ui-spinner .spinner_slice.top::after {
+    transform: rotate(-74deg)
+}
+test-app testapp-ui-spinner .spinner_slice.top_right::after,
+testapp-window testapp-ui-spinner .spinner_slice.top_right::after {
+    transform: rotate(-95deg)
+}
+test-app testapp-ui-spinner .spinner_slice.right::after,
+testapp-window testapp-ui-spinner .spinner_slice.right::after {
+    transform: rotate(-116deg)
+}
+test-app testapp-ui-spinner .spinner_slice.bottom_right::after,
+testapp-window testapp-ui-spinner .spinner_slice.bottom_right::after {
+    transform: rotate(-137deg)
+}
+test-app testapp-ui-spinner .spinner_slice.bottom::after,
+testapp-window testapp-ui-spinner .spinner_slice.bottom::after {
+    transform: rotate(-158deg)
+}
+test-app testapp-ui-spinner .spinner_slice.bottom_left::after,
+testapp-window testapp-ui-spinner .spinner_slice.bottom_left::after {
+    transform: rotate(-179deg)
+}
+test-app testapp-ui-spinner .spinner_slice.left::after,
+testapp-window testapp-ui-spinner .spinner_slice.left::after {
+    transform: rotate(-200deg)
+}
+test-app testapp-ui-spinner .spinner_slice.top_left::after,
+testapp-window testapp-ui-spinner .spinner_slice.top_left::after {
+    transform: rotate(-221deg)
+}
+testapp-ui-animation[animation-name="testapp_ui_wave_animation"][is-running] testapp-ui-animation-sprite[animating] {
+	background: var(--testapp-wave-animation-color);
+	border-radius: 50%;
+	animation: testapp_ui_wave_animation .5s ease
+}
+testapp-ui-button.testapp_ui_circle_button testapp-ui-animation[animation-name="testapp_ui_wave_animation"][is-running] testapp-ui-animation-sprite[animating],
+testapp-ui-checkbox testapp-ui-animation[animation-name="testapp_ui_wave_animation"][is-running] testapp-ui-animation-sprite[animating],
+testapp-ui-radiobutton testapp-ui-animation[animation-name="testapp_ui_wave_animation"][is-running] testapp-ui-animation-sprite[animating] {
+	animation: testapp_ui_circle_wave_animation .5s ease
+}
+@keyframes testapp_ui_wave_animation {
+	0% {
+		top: var(--testapp-ui-animation-startpos-y);
+		left: var(--testapp-ui-animation-startpos-x);
+		width: 0;
+		height: 0;
+		opacity: 0
+	}
+	75% {
+		top: calc(var(--testapp-ui-animation-startpos-y) - var(--testapp-ui-animation-width));
+		left: calc(var(--testapp-ui-animation-startpos-x) - var(--testapp-ui-animation-width));
+		width: calc(var(--testapp-ui-animation-width)*2);
+		height: calc(var(--testapp-ui-animation-width)*2);
+		opacity: 1
+	}
+	100% {
+		top: calc(var(--testapp-ui-animation-startpos-y) - var(--testapp-ui-animation-width));
+		left: calc(var(--testapp-ui-animation-startpos-x) - var(--testapp-ui-animation-width));
+		width: calc(var(--testapp-ui-animation-width) * 2);
+		height: calc(var(--testapp-ui-animation-width) * 2);
+		opacity: 0
+	}
+}
+@keyframes testapp_ui_circle_wave_animation {
+	0% {
+		top: 50%;
+		left: 50%;
+		width: 0;
+		height: 0;
+		opacity: 0
+	}
+	50% {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 1
+	}
+	100% {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0
+	}
+}
+@keyframes rotate_spin {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+@keyframes circle_spin {
+    40% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(120deg)
+    }
+}
+@keyframes progress_animation {
+    0% {
+        left: 0;
+        width: 0
+    }
+    50% {
+        left: 42%;
+        width: 16%
+    }
+    100% {
+        left: 100%;
+        width: 0
+    }
+}

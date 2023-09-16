@@ -1,0 +1,35 @@
+<!doctype html>
+<!--
+
+    Copyright (C) 2019 Neko
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Neko Web Application Test</title>
+        <!-- Adding Neko Web Application Framework Library in preload for using -->
+        <link rel="preload" href="/assets/js/nekoapp.js" as="script">
+        <!-- Adding application main script in preload for using -->
+        <link rel="preload" href="/assets/js/testapp.main.js" as="script">
+        <!-- Adding scripts that includes preloaded scripts for using -->
+        <script type="text/javascript">(function(){"use strict";var a=document.getElementsByTagName("link"),b=document.getElementsByTagName("head")[0],c=document.getElementsByTagName("script")[document.getElementsByTagName("script").length-1],d=document.createElement("script"),e=document.createElement("script"),f,g;for(var i=0;i<a.length;i++)if(a[i].href.indexOf("nekoapp.js")>-1)f=a[i].href;for(var i=0;i<a.length;i++)if(a[i].href.indexOf(".main.js")>-1)g=a[i].href;d.type="text/javascript";d.src=f;d.onload=function(){b.insertBefore(e,c);};e.type="text/javascript";e.src=g;b.insertBefore(d,c);})();</script>
+    </head>
+    <body>
+        <!-- Main element for application where will things happen -->
+        <test-app></test-app>
+    </body>
+</html>

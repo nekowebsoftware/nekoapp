@@ -1,0 +1,646 @@
+/*--------------------------------------------------------------------------
+//  Copyright (c) 2019 Neko
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------*/
+
+html, body, a, div, span, section, p, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, testapp-string {
+    margin: 0;
+    padding: 0
+}
+html, body {
+    font-family: Arial, sans-serif
+}
+a {
+    text-decoration: none
+}
+img {
+    border: none;
+    max-width: 100%
+}
+ul {
+    list-style: none
+}
+[hidden] {
+    display: none!important
+}
+html, body {
+    font-family: Arial, sans-serif
+}
+test-app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+	transition: filter ease .2s
+}
+test-app[overlay-active] {
+	filter: blur(5px)
+}
+testapp-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity ease .2s
+}
+test-app testapp-ui-graphic,
+testapp-window testapp-ui-graphic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    vertical-align: middle
+}
+test-app testapp-ui-animation,
+testapp-window testapp-ui-animation {
+	position: relative;
+	overflow: hidden
+}
+test-app testapp-ui-animation testapp-ui-animation-sprite,
+testapp-window testapp-ui-animation testapp-ui-animation-sprite {
+	position: absolute
+}
+test-app testapp-module {
+    padding: 60px 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: opacity ease .4s
+}
+testapp-overlay testapp-window {
+	position: relative;
+	overflow: hidden;
+	display: inline-flex;
+	flex-direction: column;
+	padding: 18px;
+	transition: transform ease .2s
+}
+test-app[processing] testapp-module {
+    opacity: .4
+}
+test-app[loading] testapp-module {
+    opacity: 0;
+    pointer-events: none
+}
+test-app testapp-ui-button,
+test-app testapp-ui-checkbox,
+test-app testapp-ui-radiobutton,
+test-app testapp-ui-textbox,
+test-app testapp-ui-combobox,
+testapp-window testapp-ui-button,
+testapp-window testapp-ui-checkbox,
+testapp-window testapp-ui-radiobutton,
+testapp-window testapp-ui-textbox,
+testapp-window testapp-ui-combobox {
+	position: relative;
+	display: inline-flex
+}
+test-app testapp-ui-button,
+testapp-window testapp-ui-button {
+	overflow: hidden
+}
+test-app testapp-ui-button a,
+testapp-window testapp-ui-button a {
+    display: inline-flex
+}
+test-app testapp-ui-button.testapp_ui_circle_button,
+testapp-window testapp-ui-button.testapp_ui_circle_button {
+	border-radius: 50%
+}
+test-app testapp-ui-button testapp-ui-animation,
+test-app testapp-ui-button testapp-ui-element.testapp_ui_button_background,
+test-app testapp-ui-button testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button testapp-ui-animation,
+testapp-window testapp-ui-button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button testapp-ui-element.testapp_ui_button_content {
+	pointer-events: none
+}
+test-app testapp-ui-button testapp-ui-animation,
+testapp-window testapp-ui-button testapp-ui-animation {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2
+}
+test-app testapp-ui-button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button testapp-ui-element.testapp_ui_button_background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1
+}
+test-app testapp-ui-button testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button testapp-ui-element.testapp_ui_button_content {
+	z-index: 3;
+	padding: 10px 14px;
+	font-weight: bold;
+	text-transform: uppercase
+}
+test-app testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background,
+testapp-window testapp-ui-button.testapp_ui_glass_button testapp-ui-element.testapp_ui_button_background {
+	filter: blur(1px)
+}
+test-app testapp-ui-button.testapp_ui_circle_button testapp-ui-element.testapp_ui_button_content,
+testapp-window testapp-ui-button.testapp_ui_circle_button testapp-ui-element.testapp_ui_button_content {
+	padding: 10px
+}
+test-app testapp-ui-checkbox testapp-ui-animation,
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon,
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_content,
+test-app testapp-ui-radiobutton testapp-ui-animation,
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon,
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_content,
+testapp-window testapp-ui-checkbox testapp-ui-animation,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_content,
+testapp-window testapp-ui-radiobutton testapp-ui-animation,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_content {
+    pointer-events: none
+}
+test-app testapp-ui-checkbox testapp-ui-animation,
+test-app testapp-ui-radiobutton testapp-ui-animation,
+testapp-window testapp-ui-checkbox testapp-ui-animation,
+testapp-window testapp-ui-radiobutton testapp-ui-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 45px;
+    height: 45px;
+}
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon,
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2
+}
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon {
+	padding: 10px
+}
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon {
+	margin: 10px;
+	width: 17px;
+	height: 17px;
+	border: solid 4px;
+	border-radius: 50%;
+	transition: border-color ease .2s
+}
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon::after,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_icon::after {
+	content: '';
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	border-radius: 50%;
+	transition: width ease .2s, height ease .2s, top ease .2s, left ease .2s, background ease .2s
+}
+test-app testapp-ui-radiobutton[selected] testapp-ui-element.testapp_ui_radiobutton_icon::after,
+testapp-window testapp-ui-radiobutton[selected] testapp-ui-element.testapp_ui_radiobutton_icon::after {
+	width: 13px;
+	height: 13px;
+	top: 2px;
+	left: 2px
+}
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_icon testapp-ui-graphic {
+    width: 25px;
+    height: 25px
+}
+test-app testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_content,
+test-app testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_content,
+testapp-window testapp-ui-checkbox testapp-ui-element.testapp_ui_checkbox_content,
+testapp-window testapp-ui-radiobutton testapp-ui-element.testapp_ui_radiobutton_content {
+    height: 45px;
+    padding: 0 10px 0 50px;
+    display: inline-flex;
+    align-items: center
+}
+test-app testapp-ui-textbox[placeholder]::before,
+testapp-window testapp-ui-textbox[placeholder]::before {
+    content: attr(placeholder);
+    position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+    padding: 10px 12px;
+	text-align: initial;
+    opacity: 1;
+    pointer-events: none
+}
+test-app testapp-ui-textbox[placeholder][has-text]::before,
+testapp-window testapp-ui-textbox[placeholder][has-text]::before {
+    opacity: 0
+}
+test-app testapp-ui-textbox testapp-ui-element.testapp_ui_textbox_input,
+testapp-window testapp-ui-textbox testapp-ui-element.testapp_ui_textbox_input {
+    width: 224px;
+    min-height: 18px;
+    padding: 10px 12px;
+    text-align: left
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_input,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_input {
+	width: 250px
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox[placeholder]::before,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox[placeholder]::before {
+    padding: 10px 0
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_input,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_input {
+    padding: 10px 0 13px
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    pointer-events: none
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke::after,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox testapp-ui-element.testapp_ui_textbox_stroke::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    height: 3px;
+    transition: left ease .2s, right ease .2s
+}
+test-app testapp-ui-textbox.testapp_ui_stroked_textbox[focused] testapp-ui-element.testapp_ui_textbox_stroke::after,
+testapp-window testapp-ui-textbox.testapp_ui_stroked_textbox[focused] testapp-ui-element.testapp_ui_textbox_stroke::after {
+    left: 0;
+    right: 0
+}
+test-app testapp-ui-textbox.testapp_ui_simple_textbox,
+test-app testapp-ui-textbox.testapp_ui_highlighted_textbox,
+testapp-window testapp-ui-textbox.testapp_ui_simple_textbox,
+testapp-window testapp-ui-textbox.testapp_ui_highlighted_textbox {
+    border-radius: 3px
+}
+test-app testapp-ui-textbox.testapp_ui_simple_textbox,
+testapp-window testapp-ui-textbox.testapp_ui_simple_textbox {
+    border: solid 1px
+}
+test-app testapp-ui-textbox.testapp_ui_highlighted_textbox testapp-ui-element.testapp_ui_textbox_input,
+test-app testapp-ui-textbox.testapp_ui_highlighted_textbox[placeholder]::before,
+testapp-window testapp-ui-textbox.testapp_ui_highlighted_textbox testapp-ui-element.testapp_ui_textbox_input,
+testapp-window testapp-ui-textbox.testapp_ui_highlighted_textbox[placeholder]::before {
+	padding: 11px 13px
+}
+test-app testapp-ui-combobox,
+testapp-window testapp-ui-combobox {
+	align-items: center;
+	width: 248px;
+	border: solid 1px;
+    border-radius: 3px
+}
+test-app testapp-ui-combobox testapp-ui-animation,
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_value,
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon,
+testapp-window testapp-ui-combobox testapp-ui-animation,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_value,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon {
+	pointer-events: none
+}
+test-app testapp-ui-combobox testapp-ui-animation,
+testapp-window testapp-ui-combobox testapp-ui-animation {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_value,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_value {
+	flex: 1;
+	padding: 10px 0 10px 12px;
+	text-align: initial
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon {
+	padding: 0 12px
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon testapp-ui-graphic,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_icon testapp-ui-graphic {
+	width: 16px;
+	height: 8px
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options {
+	position: absolute;
+	top: 34px;
+	left: -1px;
+	right: -1px;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	transition: height ease .2s, padding ease .2s
+}
+test-app testapp-ui-combobox[selecting] testapp-ui-element.testapp_ui_combobox_options,
+testapp-window testapp-ui-combobox[selecting] testapp-ui-element.testapp_ui_combobox_options {
+	padding: 8px 0
+}
+test-app testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options testapp-ui-element,
+testapp-window testapp-ui-combobox testapp-ui-element.testapp_ui_combobox_options testapp-ui-element {
+	display: block;
+	padding: 8px 14px;
+	text-align: initial
+}
+testapp-window testapp-window-title {
+	margin: 0 30px 18px 0;
+	font-weight: bold
+}
+testapp-window testapp-ui-button#window_close_button {
+	position: absolute;
+	top: 12px;
+	right: 12px
+}
+testapp-window testapp-ui-button#window_close_button testapp-ui-element.testapp_ui_button_content {
+	padding: 5px;
+	width: 16px;
+	height: 16px
+}
+testapp-window testapp-ui-button#window_close_button testapp-ui-element.testapp_ui_button_content testapp-ui-graphic {
+	width: 16px;
+	height: 16px;
+	vertical-align: top
+}
+testapp-window .testapp_localechange_language_list {
+	padding: 15px 30px 0
+}
+testapp-window .testapp_localechange_language_list li {
+	margin: 0 0 12px;
+	font-size: .95em
+}
+test-app testapp-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+test-app[initialization] testapp-loading {
+    transition: opacity ease 1s
+}
+test-app[initialization-finished] testapp-loading {
+    opacity: 0;
+    pointer-events: none
+}
+test-app testapp-loading testapp-ui-graphic {
+    width: 250px
+}
+test-app testapp-loading testapp-ui-graphic svg {
+    stroke-width: 0
+}
+test-app testapp-loading .loading_status {
+    position: absolute;
+    bottom: calc(8vh);
+    width: 100%
+}
+test-app testapp-loading testapp-ui-spinner,
+testapp-window testapp-loading testapp-ui-spinner {
+    margin: 0 auto
+}
+test-app testapp-loading .loading_message {
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    min-height: 50px
+}
+test-app testapp-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 0;
+    transition: height ease .4s
+}
+test-app testapp-progress div.testapp_progress_bar_inner {
+    height: 100%
+}
+test-app[processing] testapp-progress,
+test-app[loading] testapp-progress {
+    height: 4px
+}
+test-app[loading] testapp-progress div.testapp_progress_bar_inner {
+    width: 0;
+    transition: width ease .4s
+}
+test-app testapp-head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1000
+}
+test-app testapp-head .testapp_head_container {
+    height: 60px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+}
+test-app testapp-head .testapp_head_navigation_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+test-app testapp-head testapp-logo {
+    width: 222px;
+    height: 18px;
+    margin: 0 20px;
+    display: block
+}
+test-app testapp-head testapp-logo testapp-ui-graphic {
+    width: 222px;
+    height: 18px
+}
+test-app testapp-head testapp-navigation {
+    display: flex;
+    flex-direction: row
+}
+test-app testapp-head testapp-navigation testapp-navigation-item {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex
+}
+test-app testapp-head testapp-navigation testapp-navigation-item testapp-ui-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1
+}
+test-app testapp-head testapp-navigation testapp-navigation-item testapp-ui-element {
+    font-size: 1.25em;
+    text-transform: uppercase;
+    height: 60px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center
+}
+test-app testapp-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+	bottom: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1000
+}
+test-app testapp-footer .testapp_footer_container {
+    height: 50px;
+    margin: 0 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.75em
+}
+test-app testapp-headline {
+	display: block;
+	padding: 35px 0 0 0;
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center
+}
+test-app testapp-module#testapp_features testapp-features-row,
+test-app testapp-module#testapp_ui testapp-uitest-row {
+	display: block;
+	padding: 25px 0;
+	text-align: center
+}
+test-app testapp-module#testapp_features testapp-features-row h3,
+test-app testapp-module#testapp_features testapp-features-row p,
+test-app testapp-module#testapp_ui testapp-uitest-row h3,
+test-app testapp-module#testapp_ui testapp-uitest-row p {
+	padding: 0 10px 14px
+}
+test-app testapp-module#testapp_features testapp-features-row p.testapp_row_subtext,
+test-app testapp-module#testapp_ui testapp-uitest-row p.testapp_row_subtext {
+	padding: 14px 10px
+}
+test-app testapp-test-element {
+	padding: 16px;
+	display: inline-block;
+	border: dashed 4px rgb(0, 0, 0)
+}
+test-app testapp-module#testapp_test_module {
+	padding: 20px;
+	border: dashed 4px rgb(0, 0, 0)
+}
+test-app testapp-test-element h3 {
+	padding: 0 0 12px !important
+}
+test-app testapp-test-element p {
+	padding: 0 !important
+}
+test-app testapp-module#testapp_features testapp-test-element,
+test-app testapp-module#testapp_features testapp-module#testapp_test_module {
+	margin: 0 0 14px
+}
+test-app testapp-module#testapp_ui testapp-uitest-row testapp-ui-button,
+test-app testapp-module#testapp_ui testapp-uitest-row testapp-ui-checkbox,
+test-app testapp-module#testapp_ui testapp-uitest-row testapp-ui-radiobutton,
+test-app testapp-module#testapp_ui testapp-uitest-row testapp-ui-textbox {
+	margin: 0 10px
+}
+test-app testapp-module#testapp_ui testapp-uitest-row testapp-ui-button.testapp_uitest_circle_button testapp-ui-graphic {
+	width: 25px;
+	height: 25px
+}
+test-app testapp-module#testapp_ui testapp-uitest-row testapp-ui-textbox {
+    vertical-align: top
+}
+test-app testapp-module#testapp_intro testapp-intro {
+    padding: 30px 0;
+    display: block;
+    font-size: 1.1em;
+    text-align: center
+}
+test-app testapp-module#testapp_intro testapp-intro .intro_title {
+    padding: 30px 0;
+    font-size: 4em
+}
+testapp-window#testapp_testwindow {
+	width: 520px
+}
+testapp-window#testapp_testwindow .testapp_testwindow_content {
+	padding: 25px 0 40px;
+	text-align: center
+}
+testapp-window#testapp_testwindow .testapp_testwindow_content h1 {
+	padding: 0 0 12px
+}
+test-app testapp-localebox {
+	margin: 0 20px 0 0;
+	padding: 4px 8px;
+	display: inline-flex;
+    align-items: center;
+    justify-content: center;
+	cursor: pointer;
+	opacity: .6;
+	transition: opacity ease .2s
+}
+test-app testapp-localebox:hover,
+test-app testapp-localebox:focus {
+	opacity: 1
+}
+test-app testapp-localebox .testapp_localebox_icon testapp-ui-graphic {
+	width: 20px;
+	height: 20px;
+	margin: 0 12px 0 0
+}
+test-app testapp-localebox .testapp_localebox_icon testapp-ui-graphic svg {
+	fill: transparent;
+	stroke: var(--testapp-primary-text-color);
+	stroke-width: 1px
+}
+test-app testapp-localebox .testapp_localebox_text {
+	font-size: 1.15em
+}
